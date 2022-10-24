@@ -20,6 +20,7 @@ public class Main {
         products.add(product6);
         products.add(product7);
         System.out.println(products);
+        System.out.println(Arrays.toString(products.toArray()));
 
         String productForRecipes1 = new String("Томат");
         String productForRecipes2 = new String("Лук");
