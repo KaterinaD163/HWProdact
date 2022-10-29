@@ -1,7 +1,10 @@
 import java.util.*;
 
 public class Main {
+
+
     public static void main(String[] args) {
+
         printNumbers();
         Product product1 = new Product("Томат", 245, 3.5);
         Product product2 = new Product("Лук", 60, 1.5);
@@ -37,8 +40,16 @@ public class Main {
         System.out.println(recipe1);
         System.out.println(recipe2);
         System.out.println(recipe3);
-    }
+        System.out.println();
+        printTasks();
 
+
+        Map<String, String> map = new HashMap<>();
+        map.put("6782 483726", "Щеглова Анна Ивановна, 12.12.2002");
+        map.put("6782 483726", "Задумкина Анна Ивановна, 12.12.2002");
+        map.put("3647 483728", "Самойлов Владимир Викторович, 05.11.1982");
+        System.out.println(map.get("6782 483726"));
+    }
 
     public static void printNumbers() {
         ArrayList<Integer> numbers = new ArrayList<>(20);
@@ -54,12 +65,39 @@ public class Main {
             }
         }
         System.out.println(numbers.subList(0, 20));
+    }
 
+    public static void printTasks() {
+
+        Random number1 = new Random();
+        int x = 1;
+        if (number1.nextInt(9) != 0) {
+            x = number1.nextInt(9);
+        }
+        Random number2 = new Random();
+        int y = 1;
+        if (number2.nextInt(9) > 0) {
+            y = number2.nextInt(9);
+        }
+        ArrayList<String> tasks = new ArrayList<>(15);
+        for (int i = 0; i < 15; i++) {
+            tasks.add(number1.nextInt(9) + "*" + number2.nextInt(9));
+            System.out.println(number1.nextInt(9) + "*" + number2.nextInt(9));
+        }
     }
 }
 
-
-
+//    В задании № 4стоит использовать коллекцию HashSet.
+//
+//        Так как в коллекции ArrayList проверка на наличие объекта в списке осуществляется с помощью метода equals.
+//        Т.е.сравниваются ссылки,затем возвращается true/false в зависимости от результата.
+//        В LinkedList массива нет. В этой коллекции поиск элемента осуществляется по цепочке ссылок,
+//        до нужной ссылки еще нужно дойти.
+//        В HashSet использует метод hashCode()для поиска объекта.Эта коллекция выигравает по сравнению с ArrayList,
+//        так как время,которое мы тратим на поиск конкретного объекта в ArrayList,
+//        зависит от количества элементов в массиве(необходимо итерироваться по всему массиву,чтобы сравнить элементы,
+//        что при большом наборе данных менее эффективно).
+//
 
 
 
