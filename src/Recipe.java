@@ -4,19 +4,14 @@ import java.util.Objects;
 import java.util.Set;
 
 public class Recipe {
-    private final ArrayList<String> productForRecipes;
+    private final Set<String> productForRecipes;
     private final String name;
     private final int totalCost;
 
-    public Recipe(ArrayList<String> productForRecipes, String name, int totalCost) {
+    public Recipe(Set<String> productForRecipes, String name, int totalCost) {
         this.productForRecipes = productForRecipes;
         this.name = name;
         this.totalCost = totalCost;
-    }
-
-    public ArrayList<String> getProductForRecipes() {
-        return productForRecipes;
-
     }
 
     public String getName() {
@@ -33,12 +28,12 @@ public class Recipe {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Recipe recipe = (Recipe) o;
-        return totalCost == recipe.totalCost && productForRecipes.equals(recipe.productForRecipes) && name.equals(recipe.name);
+        return name.equals(recipe.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productForRecipes, name, totalCost);
+        return Objects.hash(name);
     }
 
     @Override

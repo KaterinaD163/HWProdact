@@ -1,41 +1,41 @@
 import java.util.Map;
 
 public class Passport {
+    private String passportNumber;
 
-
-    private static String passportNumber;
-    public static String surName;
-    private static String name;
-    private static String patronymic;
-    private static String dateOfBirth;
-
-    Map<Integer, Passport> map;
-
-
-    public static String getPassportNumber() {
+    public String getPassportNumber() {
         return passportNumber;
     }
 
-    public static String getSurName() {
+    public String surName;
+    private String name;
+    private String patronymic;
+    private String dateOfBirth;
+
+
+    public String getSurName() {
         return surName;
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
-    public static String getPatronymic() {
+    public String getPatronymic() {
         return patronymic;
     }
 
-    public static String getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
     @Override
     public String toString() {
         return "Passport{" +
-                "map=" + map +
+                "surName='" + surName + '\'' +
+                ", name='" + name + '\'' +
+                ", patronymic='" + patronymic + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
                 '}';
     }
 
@@ -45,15 +45,6 @@ public class Passport {
         this.name = name;
         this.patronymic = patronymic;
         this.dateOfBirth = dateOfBirth;
-
     }
-
-
-//    public static void savePerson() {
-//        HashMap<String, String[]> map = new HashMap<>();
-//        if (!passportNumber.isEmpty()) {
-//            map.put();
-//
-//        }
 }
 

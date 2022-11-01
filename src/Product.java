@@ -2,17 +2,17 @@ import java.util.Objects;
 import java.util.Set;
 
 public class Product {
-    private static String name;
+    private String name;
     private final int cost;
     private final double weight;
 
     public Product(String name, int cost, double weight) {
-        Product.name = name;
+        this.name = name;
         this.cost = cost;
         this.weight = weight;
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
@@ -29,12 +29,12 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return cost == product.cost && Double.compare(product.weight, weight) == 0 && Objects.equals(name, product.name);
+        return Objects.equals(name, product.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, cost, weight);
+        return Objects.hash(name);
     }
 
     @Override
@@ -44,13 +44,5 @@ public class Product {
                 ", cost=" + cost +
                 ", weight=" + weight +
                 '}';
-    }
-
-    public boolean checkSameProduct() throws Exception {
-        if (getName().contains(getName())) {
-            throw new Exception("Введите новый продукт!");
-        } else {
-            return true;
-        }
     }
 }

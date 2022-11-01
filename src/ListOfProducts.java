@@ -1,20 +1,12 @@
 import java.util.Objects;
 import java.util.Set;
 
-public class ListOfProducts extends Product {
-
+public class ListOfProducts {
     private Set<Product> products;
 
-    public ListOfProducts(String name, int cost, double weight) {
-        super(name, cost, weight);
-    }
 
-    public boolean checkSameProduct() throws Exception {
-        if (getName().contains(getName())) {
-            throw new Exception("Введите новый продукт!");
-        } else {
-            return true;
-        }
+    public ListOfProducts(Set<Product> products) {
+        this.products = products;
     }
 
     @Override
@@ -30,15 +22,8 @@ public class ListOfProducts extends Product {
     public int hashCode() {
         return Objects.hash(super.hashCode(), products);
     }
-
-    public boolean checkCorrectnessOfFilling() throws Exception {
-        if (getName().isEmpty() || getCost() <= 0 || getWeight() <= 0.0) {
-            throw new Exception("Введите данные!");
-        } else {
-            return true;
-        }
     }
-}
+
 
 
 

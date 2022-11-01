@@ -4,7 +4,6 @@ public class Main {
 
 
     public static void main(String[] args) {
-
         printNumbers();
         Product product1 = new Product("Томат", 245, 3.5);
         Product product2 = new Product("Лук", 60, 1.5);
@@ -22,8 +21,9 @@ public class Main {
         products.add(product5);
         products.add(product6);
         products.add(product7);
+        addProduct();
+        removeProduct();
         System.out.println(products);
-        System.out.println(Arrays.toString(products.toArray()));
 
         String productForRecipes1 = new String("Томат");
         String productForRecipes2 = new String("Лук");
@@ -32,39 +32,66 @@ public class Main {
         String productForRecipes5 = new String("Баклажан");
         String productForRecipes6 = new String("Апельсин");
         String productForRecipes7 = new String("Банан");
-        ArrayList<String> productForRecipes = new ArrayList<>(Arrays.asList(productForRecipes1, productForRecipes2, productForRecipes3, productForRecipes4, productForRecipes5, productForRecipes6, productForRecipes7));
+        Set<String> productForRecipes = new HashSet<>(Arrays.asList(productForRecipes1, productForRecipes2, productForRecipes3, productForRecipes4, productForRecipes5, productForRecipes6, productForRecipes7));
         System.out.println(productForRecipes);
-        Recipe recipe1 = new Recipe(new ArrayList<>(Arrays.asList(productForRecipes1, productForRecipes2, productForRecipes3)), "Летний", 150);
-        Recipe recipe2 = new Recipe(new ArrayList<>(Arrays.asList(productForRecipes1, productForRecipes4, productForRecipes5)), "Овощной", 250);
-        Recipe recipe3 = new Recipe(new ArrayList<>(Arrays.asList(productForRecipes6, productForRecipes7)), "Фруктовый", 200);
+        Recipe recipe1 = new Recipe(new HashSet<>(Arrays.asList(productForRecipes1, productForRecipes2, productForRecipes3)), "Летний", 150);
+        Recipe recipe2 = new Recipe(new HashSet<>(Arrays.asList(productForRecipes1, productForRecipes4, productForRecipes5)), "Овощной", 250);
+        Recipe recipe3 = new Recipe(new HashSet<>(Arrays.asList(productForRecipes6, productForRecipes7)), "Фруктовый", 200);
         System.out.println(recipe1);
         System.out.println(recipe2);
         System.out.println(recipe3);
         System.out.println();
         printTasks();
+        Passport passport1 = new Passport("6782 483726", "Щеглова", "Анна", "Ивановна", "12.12.2002");
+        Passport passport2 = new Passport("6782 483726", "Задумкина", "Анна", "Ивановна", "12.12.2002");
+        Passport passport3 = new Passport("3647 483728", "Самойлов", "Владимир", "Викторович", "05.11.1982");
+        Set<Passport> passports = new HashSet<>();
+        passports.add(passport1);
+        passports.add(passport2);
+        passports.add(passport3);
+        System.out.println(passports);
+    }
 
 
-        Map<String, String> map = new HashMap<>();
-        map.put("6782 483726", "Щеглова Анна Ивановна, 12.12.2002");
-        map.put("6782 483726", "Задумкина Анна Ивановна, 12.12.2002");
-        map.put("3647 483728", "Самойлов Владимир Викторович, 05.11.1982");
-        System.out.println(map.get("6782 483726"));
+    public static void addProduct() {
+        Set<Product> products = new HashSet<>();
+        for (Product product : products) {
+            if (products.contains(products)) {
+                System.out.println("Такой продукт уже есть в списке!");
+            } else {
+                System.out.println(products.add((Product) products));
+            }
+        }
+    }
+
+    public static void removeProduct() {
+        Set<Product> products = new HashSet<>();
+        Iterator<Product> productsIterator = products.iterator();
+        while (productsIterator.hasNext()) {
+            Product nextProduct = productsIterator.next();
+            if (nextProduct.equals(products)) {
+                productsIterator.remove();
+            }
+        }
+        System.out.println("Товар уже куплен");
     }
 
     public static void printNumbers() {
-        ArrayList<Integer> numbers = new ArrayList<>(20);
-        for (int i = 1; i <= 1000; i++) {
-            numbers.add(i);
+        Random random = new Random();
+        Set<Integer> numbers = new HashSet<>();
+        for (int i = 0; i < 20; i++) {
+            numbers.add(random.nextInt(1001));
         }
-        Collections.shuffle(numbers);
         Iterator<Integer> numbersIterator = numbers.iterator();
         while (numbersIterator.hasNext()) {
             Integer nextNumber = numbersIterator.next();
             if (nextNumber % 2 != 0) {
                 numbersIterator.remove();
+            } else {
+                numbers.add(nextNumber);
             }
         }
-        System.out.println(numbers.subList(0, 20));
+        System.out.println(numbers);
     }
 
     public static void printTasks() {
@@ -79,13 +106,17 @@ public class Main {
         if (number2.nextInt(9) > 0) {
             y = number2.nextInt(9);
         }
-        ArrayList<String> tasks = new ArrayList<>(15);
+        Set<String> tasks = new HashSet<>(15);
         for (int i = 0; i < 15; i++) {
-            tasks.add(number1.nextInt(9) + "*" + number2.nextInt(9));
+            if (tasks.contains(number1.nextInt(9) + "*" + number2.nextInt(9)) &&
+                    tasks.contains(number2.nextInt(9) + "*" + number1.nextInt(9))) {
+                tasks.remove(number1.nextInt(9) + "*" + number2.nextInt(9));
+            }
             System.out.println(number1.nextInt(9) + "*" + number2.nextInt(9));
         }
     }
 }
+
 
 //    В задании № 4стоит использовать коллекцию HashSet.
 //
