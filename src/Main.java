@@ -79,7 +79,9 @@ public class Main {
     public static void printNumbers() {
         Random random = new Random();
         Set<Integer> numbers = new HashSet<>();
-        for (int i = 0; i < 20; i++) {
+        int i = 0;
+        while (i < 20) {
+            i++;
             numbers.add(random.nextInt(1001));
         }
         Iterator<Integer> numbersIterator = numbers.iterator();
@@ -87,15 +89,12 @@ public class Main {
             Integer nextNumber = numbersIterator.next();
             if (nextNumber % 2 != 0) {
                 numbersIterator.remove();
-            } else {
-                numbers.add(nextNumber);
             }
         }
         System.out.println(numbers);
     }
 
     public static void printTasks() {
-
         Random number1 = new Random();
         int x = 1;
         if (number1.nextInt(9) != 0) {
@@ -107,18 +106,15 @@ public class Main {
             y = number2.nextInt(9);
         }
         Set<String> tasks = new HashSet<>(15);
-        for (int i = 0; i < 15; i++) {
-            if (tasks.contains(number1.nextInt(9) + "*" + number2.nextInt(9)) &&
-                    tasks.contains(number2.nextInt(9) + "*" + number1.nextInt(9))) {
-                tasks.remove(number1.nextInt(9) + "*" + number2.nextInt(9));
-            }
-            System.out.println(number1.nextInt(9) + "*" + number2.nextInt(9));
+        int i = 0;
+        while (i < 15) {
+            i++;
+            System.out.println(tasks.add(tasks.toString()));
         }
     }
 }
-
-
-//    В задании № 4стоит использовать коллекцию HashSet.
+//    Домашнее задание № 3.4
+//    В задании № 4 стоит использовать коллекцию HashSet.
 //
 //        Так как в коллекции ArrayList проверка на наличие объекта в списке осуществляется с помощью метода equals.
 //        Т.е.сравниваются ссылки,затем возвращается true/false в зависимости от результата.
