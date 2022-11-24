@@ -1,15 +1,19 @@
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 public class Product {
     private String name;
-    private final int cost;
-    private final double weight;
+    private int cost;
+    private double weight;
 
     public Product(String name, int cost, double weight) {
         this.name = name;
         this.cost = cost;
         this.weight = weight;
+    }
+
+    public Product() {
     }
 
     public String getName() {
@@ -22,6 +26,18 @@ public class Product {
 
     public double getWeight() {
         return weight;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
 
     @Override

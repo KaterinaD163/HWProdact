@@ -3,12 +3,17 @@ import java.util.Iterator;
 import java.util.Objects;
 import java.util.Set;
 
-public class ListOfProducts {
-    private Set<Product> products;
+public class ListOfProduct {
+    public static Set<Product> products = new HashSet<>();
 
 
-    public ListOfProducts(Set<Product> products) {
+    public ListOfProduct(Set<Product> products) {
+
         this.products = products;
+    }
+
+    public static Set<Product> getProducts() {
+        return products;
     }
 
     @Override
@@ -16,7 +21,7 @@ public class ListOfProducts {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        ListOfProducts that = (ListOfProducts) o;
+        ListOfProduct that = (ListOfProduct) o;
         return Objects.equals(products, that.products);
     }
 
@@ -25,18 +30,16 @@ public class ListOfProducts {
         return Objects.hash(super.hashCode(), products);
     }
 
-    public static void addProduct() {
+    public static void addProduct(Product product) {
         Set<Product> products = new HashSet<>();
-        for (Product product : products) {
-            if (products.contains(products)) {
-                System.out.println("Такой продукт уже есть в списке!");
-            } else {
-                System.out.println(products.add((Product) products));
-            }
+        if (!products.add(new Product())) {
+            throw new RuntimeException("Такой продукт уже есть!");
+        } else if (product.getName().isEmpty()) {
+            throw new RuntimeException("Заполните карточку товара полностью!");
         }
     }
+
     public static void removeProduct() {
-        Set<Product> products = new HashSet<>();
         Iterator<Product> productsIterator = products.iterator();
         while (productsIterator.hasNext()) {
             Product nextProduct = productsIterator.next();

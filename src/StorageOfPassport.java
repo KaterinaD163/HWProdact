@@ -1,29 +1,30 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 public class StorageOfPassport {
-    public Set<String> passports;
-    private Passport passport;
+    public static List<Passport> passports;
 
 
-    public StorageOfPassport(Set<String> passports) {
+    public StorageOfPassport(List<Passport> passports) {
         this.passports = passports;
     }
 
-    public void addPassports(Passport passport) {
-        Set<String> passports = new HashSet<>();
-        if (passport.getPatronymic().isEmpty()) {
-            System.out.println(passports.add(String.valueOf(passport)) + " (Отчества нет)");
+    public static void addPassports(Passport passport) {
+        if (!passport.getPassportNumber().equals(passports)) {
+            passports.add(passport);
         } else {
-            System.out.println(passports.add(String.valueOf(passport)));
+            System.out.println(passport.getPassportNumber() + passport.getSurName() + passport.getName() +
+                    passport.getPatronymic() + passport.getDateOfBirth());
         }
     }
 
-    public String personSearch(String passportNumber) {
-        Set<String> passports = new HashSet<>();
-        if (!passportNumber.isEmpty()) {
+
+    public static Passport personSearch(Passport passportNumber) {
+        for (Passport passport : passports) {
+            if (passport.getPassportNumber().equals(passports)) {
+                return passport;
+            }
         }
-        return passport.getSurName() + passport.getName() + passport.getPatronymic() + passport.getDateOfBirth();
-        }
+        return null;
     }
+}
 

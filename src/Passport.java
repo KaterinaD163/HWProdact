@@ -1,7 +1,8 @@
 import java.util.Map;
+import java.util.Objects;
 
 public class Passport {
-    private String passportNumber;
+    private final String passportNumber;
 
     public String getPassportNumber() {
         return passportNumber;
@@ -32,7 +33,8 @@ public class Passport {
     @Override
     public String toString() {
         return "Passport{" +
-                "surName='" + surName + '\'' +
+                "passportNumber='" + passportNumber + '\'' +
+                ", surName='" + surName + '\'' +
                 ", name='" + name + '\'' +
                 ", patronymic='" + patronymic + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
@@ -45,6 +47,19 @@ public class Passport {
         this.name = name;
         this.patronymic = patronymic;
         this.dateOfBirth = dateOfBirth;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Passport passport = (Passport) o;
+        return Objects.equals(passportNumber, passport.passportNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(passportNumber);
     }
 }
 

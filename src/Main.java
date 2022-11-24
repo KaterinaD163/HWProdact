@@ -21,8 +21,6 @@ public class Main {
         products.add(product5);
         products.add(product6);
         products.add(product7);
-        addProduct();
-        removeProduct();
         System.out.println(products);
 
         String productForRecipes1 = new String("Томат");
@@ -45,53 +43,35 @@ public class Main {
         Passport passport1 = new Passport("6782 483726", "Щеглова", "Анна", "Ивановна", "12.12.2002");
         Passport passport2 = new Passport("6782 483726", "Задумкина", "Анна", "Ивановна", "12.12.2002");
         Passport passport3 = new Passport("3647 483728", "Самойлов", "Владимир", "Викторович", "05.11.1982");
-        Set<Passport> passports = new HashSet<>();
+        List<Passport> passports = new ArrayList<>();
         passports.add(passport1);
         passports.add(passport2);
         passports.add(passport3);
         System.out.println(passports);
     }
 
+    public static Set<Integer> printNumbers() {
+//        Set<Integer> numbers = new HashSet<>();
+//        for (int i = 0; i < 20; i++) {
+//            double random = Math.random() * 1000;
+//            numbers.add((int) random);
+//        }
+//        numbers.removeIf(nextNumber -> nextNumber % 2 != 0);
+//        return numbers;
+//        System.out.println(numbers);
+//    }
 
-    public static void addProduct() {
-        Set<Product> products = new HashSet<>();
-        for (Product product : products) {
-            if (products.contains(products)) {
-                System.out.println("Такой продукт уже есть в списке!");
-            } else {
-                System.out.println(products.add((Product) products));
-            }
-        }
-    }
 
-    public static void removeProduct() {
-        Set<Product> products = new HashSet<>();
-        Iterator<Product> productsIterator = products.iterator();
-        while (productsIterator.hasNext()) {
-            Product nextProduct = productsIterator.next();
-            if (nextProduct.equals(products)) {
-                productsIterator.remove();
-            }
-        }
-        System.out.println("Товар уже куплен");
-    }
-
-    public static void printNumbers() {
         Random random = new Random();
         Set<Integer> numbers = new HashSet<>();
         int i = 0;
-        while (i < 20) {
+        while (numbers.size() <= 20) {
             i++;
             numbers.add(random.nextInt(1001));
         }
-        Iterator<Integer> numbersIterator = numbers.iterator();
-        while (numbersIterator.hasNext()) {
-            Integer nextNumber = numbersIterator.next();
-            if (nextNumber % 2 != 0) {
-                numbersIterator.remove();
-            }
-        }
+        numbers.removeIf(nextNumber -> nextNumber % 2 != 0);
         System.out.println(numbers);
+        return numbers;
     }
 
     public static void printTasks() {
@@ -109,7 +89,7 @@ public class Main {
         int i = 0;
         while (i < 15) {
             i++;
-            System.out.println(tasks.add(tasks.toString()));
+            System.out.println(number1.nextInt(9) + "*" + number2.nextInt(9));
         }
     }
 }
@@ -120,7 +100,7 @@ public class Main {
 //        Т.е.сравниваются ссылки,затем возвращается true/false в зависимости от результата.
 //        В LinkedList массива нет. В этой коллекции поиск элемента осуществляется по цепочке ссылок,
 //        до нужной ссылки еще нужно дойти.
-//        В HashSet использует метод hashCode()для поиска объекта.Эта коллекция выигравает по сравнению с ArrayList,
+//        В HashSet использует метод hashCode()для поиска объекта.Эта коллекция выигрывает по сравнению с ArrayList,
 //        так как время,которое мы тратим на поиск конкретного объекта в ArrayList,
 //        зависит от количества элементов в массиве(необходимо итерироваться по всему массиву,чтобы сравнить элементы,
 //        что при большом наборе данных менее эффективно).
