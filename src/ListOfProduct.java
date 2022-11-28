@@ -31,7 +31,7 @@ public class ListOfProduct {
     }
 
     public static void addProduct(Product product) {
-        if (products.add(product)) {
+        if (!products.add(product)) {
             throw new RuntimeException("Такой продукт уже есть!");
         } else if (product.getName().isEmpty()) {
             throw new RuntimeException("Заполните карточку товара полностью!");

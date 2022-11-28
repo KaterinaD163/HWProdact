@@ -25,9 +25,9 @@ public class ListOfRecipe {
     }
 
     public static void addRecipe(Recipe recipe) throws Exception {
-        if (recipes.add(recipe)) {
+        if (!recipes.add(recipe)) {
             throw new Exception("Такой рецепт уже есть");
-        } else if (!recipe.getName().contains(recipe.getName())) {
+        } else if (!recipe.getName().isEmpty()) {
             System.out.println(recipes.add(recipe));
         }
     }

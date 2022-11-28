@@ -10,7 +10,7 @@ public class NumberOfXAndY {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if ((x * y) == (y * x)) System.out.println(x * y);;
+        if ((x * y) == (y * x)) return false;;
         NumberOfXAndY that = (NumberOfXAndY) o;
         return x == that.x && y == that.y;
     }

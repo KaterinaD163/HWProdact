@@ -17,10 +17,10 @@ public class StorageOfPassport {
     }
 
 
-    public static Passport personSearch(Passport passportNumber) {
+    public static  String personSearch(Passport passportNumber) {
         for (Passport passport : passports) {
-            if (passport.getPassportNumber().contains(passports.toString())) {
-                return passport;
+            if (passport.getPassportNumber().contains(passport.getPassportNumber())) {
+                System.out.println(passports);
             }
         }
         return null;
