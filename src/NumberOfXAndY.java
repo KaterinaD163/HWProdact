@@ -1,0 +1,28 @@
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Random;
+import java.util.Set;
+
+public class NumberOfXAndY {
+    private int x;
+    private int y;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if ((x * y) == (y * x)) return false;;
+        NumberOfXAndY that = (NumberOfXAndY) o;
+        return x == that.x && y == that.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
+
+    @Override
+    public String toString() {
+        return "x * y";
+    }
+}
+
