@@ -4,23 +4,22 @@ public class StorageOfPassport {
     public static List<Passport> passports;
 
 
-    public StorageOfPassport(List<Passport> passports) {
+    private StorageOfPassport(List<Passport> passports) {
         this.passports = passports;
     }
 
     public static void addPassports(Passport passport) {
-        if (!passport.getPassportNumber().equals(passports)) {
+        if (!passports.contains(passport)) {
             passports.add(passport);
-        } else {
-            System.out.println(passport.getPassportNumber() + passport.getSurName() + passport.getName() +
-                    passport.getPatronymic() + passport.getDateOfBirth());
+        } else{
+            System.out.println(passport);
         }
     }
 
 
     public static Passport personSearch(Passport passportNumber) {
         for (Passport passport : passports) {
-            if (passport.getPassportNumber().equals(passports)) {
+            if (passport.getPassportNumber().contains(passports.toString())) {
                 return passport;
             }
         }

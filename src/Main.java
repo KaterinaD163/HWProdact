@@ -51,22 +51,9 @@ public class Main {
     }
 
     public static Set<Integer> printNumbers() {
-//        Set<Integer> numbers = new HashSet<>();
-//        for (int i = 0; i < 20; i++) {
-//            double random = Math.random() * 1000;
-//            numbers.add((int) random);
-//        }
-//        numbers.removeIf(nextNumber -> nextNumber % 2 != 0);
-//        return numbers;
-//        System.out.println(numbers);
-//    }
-
-
         Random random = new Random();
         Set<Integer> numbers = new HashSet<>();
-        int i = 0;
         while (numbers.size() <= 20) {
-            i++;
             numbers.add(random.nextInt(1001));
         }
         numbers.removeIf(nextNumber -> nextNumber % 2 != 0);
@@ -87,7 +74,7 @@ public class Main {
         }
         Set<String> tasks = new HashSet<>(15);
         int i = 0;
-        while (i < 15) {
+        while (i <= 15) {
             i++;
             System.out.println(number1.nextInt(9) + "*" + number2.nextInt(9));
         }

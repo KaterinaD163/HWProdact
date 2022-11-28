@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class ListOfProduct {
-    public static Set<Product> products = new HashSet<>();
+    private static Set<Product> products = new HashSet<>();
 
 
     public ListOfProduct(Set<Product> products) {
@@ -31,8 +31,7 @@ public class ListOfProduct {
     }
 
     public static void addProduct(Product product) {
-        Set<Product> products = new HashSet<>();
-        if (!products.add(new Product())) {
+        if (products.add(product)) {
             throw new RuntimeException("Такой продукт уже есть!");
         } else if (product.getName().isEmpty()) {
             throw new RuntimeException("Заполните карточку товара полностью!");

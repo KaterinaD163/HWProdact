@@ -3,7 +3,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class ListOfRecipe {
-    private Set<Recipe> recipes;
+    private static Set<Recipe> recipes;
     private final String name;
 
 
@@ -25,12 +25,10 @@ public class ListOfRecipe {
     }
 
     public static void addRecipe(Recipe recipe) throws Exception {
-        Set<Recipe> recipes = new HashSet<>();
-        for (var listOfRecipe : recipes) {
-            if (listOfRecipe.getName().equals(recipe.getName())) {
-                throw new Exception("Такой рецепт уже есть");
-            }
+        if (recipes.add(recipe)) {
+            throw new Exception("Такой рецепт уже есть");
+        } else if (!recipe.getName().contains(recipe.getName())) {
+            System.out.println(recipes.add(recipe));
         }
-        recipes.add(recipe);
     }
 }
