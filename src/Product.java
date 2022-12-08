@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -5,12 +6,12 @@ import java.util.Set;
 public class Product {
     private String name;
     private int cost;
-    private double weight;
+//    private double weight;
 
-    public Product(String name, int cost, double weight) {
+
+    public Product(String name, int cost) {
         this.name = name;
         this.cost = cost;
-        this.weight = weight;
     }
 
     public Product() {
@@ -24,9 +25,9 @@ public class Product {
         return cost;
     }
 
-    public double getWeight() {
-        return weight;
-    }
+//    public double getWeight() {
+//        return weight;
+//    }
 
     public void setName(String name) {
         this.name = name;
@@ -36,9 +37,9 @@ public class Product {
         this.cost = cost;
     }
 
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
+//    public void setWeight(double weight) {
+//        this.weight = weight;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -53,12 +54,14 @@ public class Product {
         return Objects.hash(name);
     }
 
+
     @Override
     public String toString() {
         return "Product{" +
                 "name='" + name + '\'' +
                 ", cost=" + cost +
-                ", weight=" + weight +
+//                ", weight=" + weight +
                 '}';
+
     }
 }

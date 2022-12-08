@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Main {
@@ -5,14 +6,14 @@ public class Main {
 
     public static void main(String[] args) {
         printNumbers();
-        Product product1 = new Product("Томат", 245, 3.5);
-        Product product2 = new Product("Лук", 60, 1.5);
-        Product product3 = new Product("Огурец", 135, 2.8);
-        Product product4 = new Product("Кабачок", 120, 4.0);
-        Product product5 = new Product("Баклажан", 200, 3.4);
-        Product product6 = new Product("Апельсин", 180, 2.9);
-        Product product7 = new Product("Банан", 130, 2.7);
-        Product product8 = new Product("Банан", 130, 2.7);
+        Product product1 = new Product("Томат", 45);
+        Product product2 = new Product("Лук", 10);
+        Product product3 = new Product("Огурец", 35);
+        Product product4 = new Product("Кабачок", 20);
+        Product product5 = new Product("Баклажан", 70);
+        Product product6 = new Product("Апельсин", 40);
+        Product product7 = new Product("Банан", 30);
+        Product product8 = new Product("Банан", 30);
         Set<Product> products = new HashSet<>();
         products.add(product1);
         products.add(product2);
@@ -22,6 +23,42 @@ public class Main {
         products.add(product6);
         products.add(product7);
         System.out.println(products);
+        System.out.println();
+        int cost = 0;
+
+
+        //Задание 1.2
+        HashMap<Product, Integer> productForRecipe1 = new HashMap<>();
+        productForRecipe1.put(product1, 3);
+        productForRecipe1.put(product2, 1);
+        productForRecipe1.put(product3, 2);
+        Recipe recipe1 = new Recipe("Летний",productForRecipe1);
+            int totalCost1 = 0;
+            totalCost1 = productForRecipe1.get(product1) * product1.getCost() + productForRecipe1.get(product2) * product2.getCost() + productForRecipe1.get(product3) * product3.getCost();
+        System.out.println(recipe1.getName() + productForRecipe1);
+        System.out.println("Стоимость салата " + recipe1.getName() + " " + totalCost1 + " рублей");
+        System.out.println();
+
+        HashMap<Product, Integer> productForRecipe2 = new HashMap<>();
+        productForRecipe2.put(product4, 2);
+        productForRecipe2.put(product5, 1);
+        Recipe recipe2 = new Recipe("Овощной", productForRecipe2);
+            int totalCost2 = 0;
+            totalCost2 = productForRecipe2.get(product4) * product4.getCost() + productForRecipe2.get(product5) * product5.getCost();
+            System.out.println(recipe2.getName() + productForRecipe2);
+            System.out.println("Стоимость салата " + recipe2.getName() + " " + totalCost2 + " рублей");
+        System.out.println();
+
+        HashMap<Product, Integer> productForRecipe3 = new HashMap<>();
+        productForRecipe3.put(product6, 2);
+        productForRecipe3.put(product7, 1);
+        Recipe recipe3 = new Recipe("Фруктовый",productForRecipe3);
+            int totalCost3 = 0;
+            totalCost3 = productForRecipe3.get(product6) * product6.getCost() + productForRecipe3.get(product7) * product7.getCost();
+            System.out.println(recipe3.getName() + productForRecipe3);
+            System.out.println("Стоимость салата " + recipe3.getName() + " " + totalCost3 + " рублей");
+        System.out.println();
+
 
         String productForRecipes1 = new String("Томат");
         String productForRecipes2 = new String("Лук");
@@ -32,13 +69,7 @@ public class Main {
         String productForRecipes7 = new String("Банан");
         Set<String> productForRecipes = new HashSet<>(Arrays.asList(productForRecipes1, productForRecipes2, productForRecipes3, productForRecipes4, productForRecipes5, productForRecipes6, productForRecipes7));
         System.out.println(productForRecipes);
-        Recipe recipe1 = new Recipe(new HashSet<>(Arrays.asList(productForRecipes1, productForRecipes2, productForRecipes3)), "Летний", 150);
-        Recipe recipe2 = new Recipe(new HashSet<>(Arrays.asList(productForRecipes1, productForRecipes4, productForRecipes5)), "Овощной", 250);
-        Recipe recipe3 = new Recipe(new HashSet<>(Arrays.asList(productForRecipes6, productForRecipes7)), "Фруктовый", 200);
-        System.out.println(recipe1);
-        System.out.println(recipe2);
-        System.out.println(recipe3);
-        System.out.println();
+
         printTasks();
         Passport passport1 = new Passport("6782 483726", "Щеглова", "Анна", "Ивановна", "12.12.2002");
         Passport passport2 = new Passport("6782 483726", "Задумкина", "Анна", "Ивановна", "12.12.2002");

@@ -1,50 +1,46 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Recipe {
-    private final Set<String> productForRecipes;
+    private HashMap<Product, Integer> productForRecipe;
     private final String name;
-    private final int totalCost;
 
-    public Recipe(Set<String> productForRecipes, String name, int totalCost) {
-        this.productForRecipes = productForRecipes;
+    public Recipe(String name, HashMap<Product, Integer> productForRecipe) {
+        this.productForRecipe = productForRecipe;
         this.name = name;
-        this.totalCost = totalCost;
     }
+
+    public static void putProduct(HashMap<Product, Integer> productForRecipes) {
+        if (productForRecipes.containsValue(0) || productForRecipes.containsValue(null)) {
+            System.out.println(productForRecipes.containsValue(1));
+        }
+    }
+
 
     public String getName() {
         return name;
     }
-
-    public int getTotalCost() {
-        return totalCost;
-    }
-
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Recipe recipe = (Recipe) o;
-        return name.equals(recipe.name);
+        return Objects.equals(name, recipe.name);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(name);
+
+
     }
 
     @Override
     public String toString() {
         return "Recipe{" +
-                "productForRecipes=" + productForRecipes +
+                "productForRecipe=" + productForRecipe +
                 ", name='" + name + '\'' +
-                ", totalCost=" + totalCost +
                 '}';
     }
-
 }
-
 
